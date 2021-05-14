@@ -15,4 +15,4 @@ if [ -n "`find ${LocalDIR} -name '*.rar'`" ];then
         --data-urlencode msg="$3"
 fi
 
-rclone move "${File}" "${RemoteDIR}";
+rclone move -v "${File}" od:/ --transfers=3;
