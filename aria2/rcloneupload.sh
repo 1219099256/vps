@@ -3,7 +3,7 @@
 File="$3";
 LocalDIR="/root/downloads/";
 FileDIR="${File%/*}";
-tmpDIR="${File/#$LocalDIR}";
+FileNAME="${File/#$LocalDIR}";
 RemoteDIR="/";
 
 if [ -n "`find ${LocalDIR} -name '*.rar'`" ];then
@@ -17,4 +17,4 @@ rclone move -v "${FileDIR}" od:"${RemoteDIR}" --transfers=3
 
 curl -G https://sre24.com/api/v1/push \
       -d token=1db8e4d7d5d42399cc72f26a7eac5eb8 \
-      --data-urlencode msg="下载完成" -d topic="aria2"
+      --data-urlencode msg="${FileNAME}-DE" -d topic="aria2"
