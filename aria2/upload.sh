@@ -7,7 +7,7 @@ FileNAME="${File/#$LocalDIR}";
 RemoteDIR="/root/od/";
 
 if [ $FileDIR = /root/downloads ]; then
-    if [ -n "`find ${LocalDIR} -name '*.rar'`" ];then
+    if [ -n "`find ${LocalDIR} -name '*.rar'`" ]; then
         unrar -p"mrcong.com" x "${File}" "${LocalDIR}pictures/";
         rm -rf "${File}";
         FileDIR="${LocalDIR}pictures/";
