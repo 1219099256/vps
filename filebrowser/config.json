@@ -1,7 +1,7 @@
 {
 	"port": 8080,
     	"noAuth": false,
-	"baseURL": "/fb",
+	"baseURL": "/file",
 	"address": "127.0.0.1",
 	"alternativeReCaptcha": false,
 	"reCaptchaKey": "",
