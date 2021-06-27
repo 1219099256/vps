@@ -17,7 +17,7 @@ if [ $FileDIR = /root/downloads ]; then
     fi
 fi
 
-rclone move "${FileDIR}" od:"${RemoteDIR}";
+rclone moveto "${FileDIR}" od:"${RemoteDIR}";
 
 curl -G https://sre24.com/api/v1/push \
       -d token=1db8e4d7d5d42399cc72f26a7eac5eb8 \
