@@ -13,7 +13,7 @@ if [ -n "`find ${LocalDIR} -name '*.rar'`" ];then
   RemoteDIR="${RemoteDIR}pictures/";
 fi
 
-rclone move -v "${FileDIR}" od:"${RemoteDIR}" --transfers=3
+rclone move "${FileDIR}" od:"${RemoteDIR}"
 
 curl -G https://sre24.com/api/v1/push \
       -d token=1db8e4d7d5d42399cc72f26a7eac5eb8 \
