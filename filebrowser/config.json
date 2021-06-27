@@ -1,0 +1,19 @@
+{
+	"port": 8080,
+    	"noAuth": false,
+	"baseURL": "/fb",
+	"address": "127.0.0.1",
+	"alternativeReCaptcha": false,
+	"reCaptchaKey": "",
+	"reCaptchaSecret": "",
+	"database": "/etc/filebrowser/filebrowser.db",
+	"log": "stdout",
+	"plugin": "",
+	"scope": "/root",
+	"allowCommands": true,
+	"allowEdit": true,
+	"allowNew": true,
+	"commands": [
+
+	]
+}
