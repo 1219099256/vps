@@ -12,7 +12,9 @@ ExecStart=/usr/bin/rclone mount od:/ /root/od \
  --allow-other \
  --transfers 3 \
  --buffer-size 32M \
- --low-level-retries 200
+ --low-level-retries 200 \
+ --vfs-read-chunk-size 32M \
+ --vfs-read-chunk-size-limit 1G
 
 [Install]
 WantedBy=default.target
