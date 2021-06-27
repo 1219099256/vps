@@ -16,7 +16,7 @@ ExecStart=/usr/bin/rclone mount od:/ /root/od \
  --vfs-cache-max-size 100M \
  --copy-links \
  --no-gzip-encoding \
- --vfs-read-chunk-size 100M \
+ --vfs-read-chunk-size 100M
 
 [Install]
 WantedBy=default.target
