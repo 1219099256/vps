@@ -1,5 +1,6 @@
 [Unit]
 Description=Rclone
+AssertPathIsDirectory=/root/od
 After=network-online.target
 
 [Service]
@@ -12,11 +13,10 @@ ExecStart=/usr/bin/rclone mount od:/ /root/od \
  --allow-other \
  --transfers 3 \
  --buffer-size 32M \
- --low-level-retries 200 \
- --vfs-cache-max-size 100M \
- --copy-links \
- --no-gzip-encoding \
- --vfs-read-chunk-size 100M
+ --low-level-retries 200
+ExecStop=/bin/fusermount -u /root/od
+Restart=on-abort
+User=root
 
 [Install]
 WantedBy=default.target
