@@ -1,6 +1,5 @@
 [Unit]
 Description=Rclone
-AssertPathIsDirectory=/root/od
 After=network-online.target
 
 [Service]
