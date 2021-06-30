@@ -14,7 +14,7 @@ ExecStart=/usr/bin/rclone mount od:/ /root/od \
  --transfers 3 \
  --buffer-size 32M \
  --low-level-retries 200
-ExecStop=/bin/fusermount -u /root/od
+ExecStop=fusermount -u /root/od
 Restart=on-abort
 User=root
 
