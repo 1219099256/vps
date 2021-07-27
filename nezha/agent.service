@@ -15,7 +15,7 @@ Type=simple
 User=root
 Group=root
 WorkingDirectory=/root/
-ExecStart=/root/agent -d -s 
+ExecStart=/root/agent -d -s agent.findmvps.tk:5555 -s 
 Restart=always
 #Environment=DEBUG=true
 
