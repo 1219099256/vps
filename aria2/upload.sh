@@ -21,7 +21,7 @@ if [ $FileDIR = /root/downloads ]; then
     fi
 fi
 
-rclone -v move "${FileDIR}" "${RemoteDIR}"--transfers=1 --delete-empty-src-dirs;
+rclone -v move "${FileDIR}" "${RemoteDIR}" --transfers=1 --delete-empty-src-dirs;
 
 curl -k --data chat_id="642609087" --data "text=[DE]-${FileNAME}-已上传至" "https://api.telegram.org/bot1948337450:AAFXHuG06yhvL0YyWYNL7QAw4xrmExdUhzY/sendMessage";
 
