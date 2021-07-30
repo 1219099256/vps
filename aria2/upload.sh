@@ -6,13 +6,22 @@ FileDIR="${File%/*}";
 FileNAME="${File/#$LocalDIR}";
 RemoteDIR="od:/";
 
-if [ -z "$3" ]; then
+if [ -z "{$File}" ]; then
+    exit 0
+elif [ "${FileNAME}" = download_repair.php ]; then
+    rm "$3"
+    curl -k --data chat_id="642609087" --data "text"="文件下载出错" "https://api.telegram.org/bot1948337450:AAFXHuG06yhvL0YyWYNL7QAw4xrmExdUhzY/sendMessage";
     exit 0
 fi
 
 if [ $FileDIR = /root/downloads ]; then
     if [ -n "`find ${LocalDIR} -name '*.rar'`" ]; then
         unrar -p"mrcong.com" x "${File}" "${LocalDIR}pictures/";
+        rm -rf "${File}";
+        FileDIR="${LocalDIR}pictures/";
+        RemoteDIR="${RemoteDIR}pictures/";
+    elif [ -n "`find ${LocalDIR} -name '*.7z'`" ]; then
+        7z x "${File}" -p"www.moeblock.com"  -o"${LocalDIR}pictures/";
         rm -rf "${File}";
         FileDIR="${LocalDIR}pictures/";
         RemoteDIR="${RemoteDIR}pictures/";
@@ -23,8 +32,8 @@ fi
 
 rclone -v move "${FileDIR}" "${RemoteDIR}" --transfers=1 --delete-empty-src-dirs;
 
-curl -k --data chat_id="642609087" --data "text=[DE]-${FileNAME}-已上传至" "https://api.telegram.org/bot1948337450:AAFXHuG06yhvL0YyWYNL7QAw4xrmExdUhzY/sendMessage";
+curl -k --data chat_id="642609087" --data "text=[FR]-${FileNAME}-已上传至onedrive" "https://api.telegram.org/bot1948337450:AAFXHuG06yhvL0YyWYNL7QAw4xrmExdUhzY/sendMessage";
 
 cat >> /root/.aria2/file.txt <<EOF
-$FileDIR
+$FileNAME
 EOF
