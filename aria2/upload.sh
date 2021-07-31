@@ -21,7 +21,7 @@ if [ $FileDIR = /root/downloads ]; then
         FileDIR="${LocalDIR}pictures/";
         RemoteDIR="${RemoteDIR}pictures/";
     elif [ -n "`find ${LocalDIR} -name '*.7z'`" ]; then
-        7z x "${File}" -p"www.moeblock.com"  -o"${LocalDIR}pictures/";
+        7z x "${File}" -p"www.moeblock.com" -o"${LocalDIR}pictures/";
         rm -rf "${File}";
         FileDIR="${LocalDIR}pictures/";
         RemoteDIR="${RemoteDIR}pictures/";
