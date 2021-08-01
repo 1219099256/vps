@@ -3,7 +3,7 @@ Description=File Browser
 After=network.target
 
 [Service]
-ExecStart=tele-aria2 -c .config.json
+ExecStart=tele-aria2 -c /root/.config.json
 
 [Install]
 WantedBy=multi-user.target
