@@ -10,7 +10,6 @@ if [ -z "{$File}" ]; then
     exit 0
 elif [ "${FileNAME}" = download_repair.php ]; then
     rm "$3"
-    curl -k --data chat_id="642609087" --data "text"="文件下载出错" "https://api.telegram.org/bot1948337450:AAFXHuG06yhvL0YyWYNL7QAw4xrmExdUhzY/sendMessage";
     exit 0
 fi
 
@@ -32,7 +31,7 @@ fi
 
 rclone -v move "${FileDIR}" "${RemoteDIR}" --transfers=1 --delete-empty-src-dirs;
 
-curl -k --data chat_id="642609087" --data "text=[FR]-${FileNAME}-已上传至onedrive" "https://api.telegram.org/bot1948337450:AAFXHuG06yhvL0YyWYNL7QAw4xrmExdUhzY/sendMessage";
+curl -k --data chat_id="642609087" --data "text=[FR]-${FileNAME}-已上传至onedrive" "https://api.telegram.org/bot1948337450:AAGqfglgQQul_R4FM_J3pxP1T2QqaXSczVo/sendMessage";
 
 cat >> /root/.aria2/file.txt <<EOF
 $FileNAME
