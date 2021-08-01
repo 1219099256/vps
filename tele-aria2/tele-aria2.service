@@ -1,0 +1,9 @@
+[Unit]
+Description=File Browser
+After=network.target
+
+[Service]
+ExecStart=tele-aria2 -c .config.json
+
+[Install]
+WantedBy=multi-user.target
