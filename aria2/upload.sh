@@ -5,6 +5,7 @@ LocalDIR="/root/downloads/";
 FileDIR="${File%/*}";
 FileNAME="${File/#$LocalDIR}";
 RemoteDIR="od:/";
+UploadDIR="${FileNAME%%/*}";
 
 if [ -z "{$File}" ]; then
     exit 0
@@ -27,6 +28,8 @@ if [ $FileDIR = /root/downloads ]; then
     else
         FileDIR="$3";
     fi
+else
+    RemoteDIR=${RemoteDIR}${UploadDIR};
 fi
 
 rclone -v move "${FileDIR}" "${RemoteDIR}" --transfers=1 --delete-empty-src-dirs;
