@@ -1,7 +1,7 @@
 {
 	"port": 8080,
     	"noAuth": false,
-	"baseURL": ".",
+	"baseURL": "/file",
 	"address": "0.0.0.0",
 	"alternativeReCaptcha": false,
 	"reCaptchaKey": "",
@@ -9,7 +9,7 @@
 	"database": "/etc/filebrowser/filebrowser.db",
 	"log": "stdout",
 	"plugin": "",
-	"scope": "/root",
+	"scope": ".",
 	"allowCommands": true,
 	"allowEdit": true,
 	"allowNew": true,
