@@ -34,7 +34,7 @@ fi
 
 rclone -v move "${FileDIR}" "${RemoteDIR}" --transfers=1 --delete-empty-src-dirs;
 
-curl -k --data chat_id="642609087" --data "text=[FR]-${FileNAME}-已上传至onedrive" "https://api.telegram.org/bot1948337450:AAGqfglgQQul_R4FM_J3pxP1T2QqaXSczVo/sendMessage";
+curl -k --data chat_id="642609087" --data "text=[FR]-${FileNAME}-已上传至onedrive" "https://api.telegram.org/bot$/sendMessage";
 
 cat >> /root/.aria2/file.txt <<EOF
 $FileNAME
