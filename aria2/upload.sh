@@ -11,7 +11,7 @@ if [ -z "${File}" ]; then
     exit 0
 elif [ "${FileNAME}" = download_repair.php ]; then
     rm "$3"
-    exit 0
+    exit 1
 fi
 
 if [ $FileDIR = /root/downloads ]; then
@@ -27,9 +27,9 @@ else
     RemoteDIR=${RemoteDIR}${UploadDIR};
 fi
 
-rclone -v move "${FileDIR}" "${RemoteDIR}" --transfers=1 --delete-empty-src-dirs;
+rclone -v move "${FileDIR}" "${RemoteDIR}" --transfers=8 --delete-empty-src-dirs;
 
-curl -k --data chat_id="642609087" --data "text=[]-${FileNAME}-已上传至OneDrive" "https://api.telegram.org/bot$/sendMessage";
+curl -k --data chat_id="642609087" --data "text=[]-${FileNAME}-已上传至OneDrive" "https://api.telegram.org/bot/sendMessage";
 
 cat >> /root/.aria2/file.txt <<EOF
 $FileNAME
