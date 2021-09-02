@@ -7,7 +7,7 @@ FileNAME="${File/#$LocalDIR}";
 RemoteDIR="od:/";
 UploadDIR="${FileNAME%%/*}";
 
-if [ -z "{$File}" ]; then
+if [ -z "${File}" ]; then
     exit 0
 elif [ "${FileNAME}" = download_repair.php ]; then
     rm "$3"
@@ -17,11 +17,6 @@ fi
 if [ $FileDIR = /root/downloads ]; then
     if [ -n "`find ${LocalDIR} -name '*.rar'`" ]; then
         unrar -p"mrcong.com" x "${File}" "${LocalDIR}pictures/";
-        rm -rf "${File}";
-        FileDIR="${LocalDIR}pictures/";
-        RemoteDIR="${RemoteDIR}pictures/";
-    elif [ -n "`find ${LocalDIR} -name '*.7z'`" ]; then
-        7z x "${File}" -p"www.moeblock.com" -o"${LocalDIR}pictures/";
         rm -rf "${File}";
         FileDIR="${LocalDIR}pictures/";
         RemoteDIR="${RemoteDIR}pictures/";
