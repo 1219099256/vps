@@ -282,9 +282,9 @@ Set_aria2_RPC_port(){
 		aria2_port_1=${aria2_port}
 	fi
 	echo -e "请输入要设置的 Aria2 RPC端口(旧端口为：${Green_font_prefix}${aria2_port_1}${Font_color_suffix})"
-	stty erase '^H' && read -p "(默认端口: 2095):" aria2_RPC_port
+	stty erase '^H' && read -p "(默认端口: 6800):" aria2_RPC_port
 	echo
-	[[ -z "${aria2_RPC_port}" ]] && aria2_RPC_port="2095"
+	[[ -z "${aria2_RPC_port}" ]] && aria2_RPC_port="6800"
 	if [[ "${aria2_port}" != "${aria2_RPC_port}" ]]; then
 		if [[ -z "${aria2_port}" ]]; then
 			echo -e "\nrpc-listen-port=${aria2_RPC_port}" >> ${aria2_conf}
