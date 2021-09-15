@@ -2,32 +2,34 @@
 
 File="$3";
 LocalDIR="/root/downloads/";
-FileDIR="${File%/*}";
+FileAbsoluteDIR="${File%/*}/";
 FileNAME="${File/#$LocalDIR}";
 RemoteDIR="od:/";
-UploadDIR="${FileNAME%%/*}";
+FileDIR="${FileNAME%%/*}/";
 
-if [ -z "${File}" ]; then
+if [ $2 -eq 0 ]; then
     exit 0
 elif [ "${FileNAME}" = download_repair.php ]; then
     rm "$3"
-    exit 1
+    exit 0
 fi
 
-if [ $FileDIR = /root/downloads ]; then
+if [ $2 -eq 1 ]; then
+    #单文件
     if [ -n "`find ${LocalDIR} -name '*.rar'`" ]; then
-        unrar -p"mrcong.com" x "${File}" "${LocalDIR}pictures/";
+        unrar -p"mrcong.com" x "${File}" "$LocalDIR${FileNAME%.*}/";
         rm -rf "${File}";
-        FileDIR="${LocalDIR}pictures/";
+        FileAbsoluteDIR="$LocalDIR${FileNAME%.*}/";
         RemoteDIR="${RemoteDIR}pictures/";
     else
-        FileDIR="$3";
+        FileAbsoluteDIR="$3";
     fi
 else
-    RemoteDIR=${RemoteDIR}${UploadDIR};
+    #文件夹
+    RemoteDIR="${RemoteDIR}${FileDIR}";
 fi
 
-rclone -v move "${FileDIR}" "${RemoteDIR}" --transfers=8 --delete-empty-src-dirs;
+rclone -v move "${FileAbsoluteDIR}" "${RemoteDIR}" --transfers=8 --delete-empty-src-dirs;
 
 curl -k --data chat_id="642609087" --data "text=[]-${FileNAME}-已上传至OneDrive" "https://api.telegram.org/bot/sendMessage";
 
