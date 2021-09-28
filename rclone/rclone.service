@@ -10,8 +10,8 @@ ExecStart=/usr/bin/rclone mount od:/ /root/od \
  --default-permissions \
  --allow-non-empty \
  --allow-other \
- --transfers 4 \
- --buffer-size 32M \
+ --transfers 2 \
+ --buffer-size 16M \
  --low-level-retries 200
 ExecStop=/bin/fusermount -qzu /root/od
 Restart=on-abort
