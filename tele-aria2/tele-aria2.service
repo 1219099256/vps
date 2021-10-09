@@ -1,9 +1,9 @@
 [Unit]
-Description=File Browser
+Description=Tele-Aria2
 After=network.target
 
 [Service]
-ExecStart=tele-aria2 -c /root/.config.json
+ExecStart=/usr/bin/tele-aria2 -c /root/.config.json
 
 [Install]
 WantedBy=multi-user.target
