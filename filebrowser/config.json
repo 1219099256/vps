@@ -1,7 +1,7 @@
 {
 	"port": 8080,
     	"noAuth": false,
-	"baseURL": "/file",
+	"baseURL": "/filebrowser/",
 	"address": "127.0.0.1",
 	"alternativeReCaptcha": false,
 	"reCaptchaKey": "",
