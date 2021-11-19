@@ -4,7 +4,7 @@ After=network-online.target
 
 [Service]
 Type=simple
-ExecStart=/usr/bin/rclone mount od:/ /root/od \
+ExecStart=/usr/bin/rclone mount od:/.v /v \
  --vfs-cache-mode off \
  --umask 0000 \
  --default-permissions \
@@ -13,7 +13,7 @@ ExecStart=/usr/bin/rclone mount od:/ /root/od \
  --transfers 2 \
  --buffer-size 16M \
  --low-level-retries 200
-ExecStop=/bin/fusermount -qzu /root/od
+ExecStop=/bin/fusermount -qzu /v
 Restart=on-abort
 User=root
 
