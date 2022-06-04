@@ -3,7 +3,7 @@
 domain=$(openssl rand -hex 8)
 password=$(openssl rand -hex 16)
 obfs=$(openssl rand -hex 6)
-path="/root/hysteria"
+path="/etc/hysteria"
 # 生成CAkey
 openssl genrsa -out hysteria.ca.key 2048
 # 生成CA证书
