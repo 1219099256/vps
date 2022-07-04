@@ -133,7 +133,7 @@ Download_aria2_conf(){
 	[[ ! -s "dht6.dat" ]] && echo -e "${Error} Aria2 DHT6文件下载失败 !" && rm -rf "${file}" && exit 1
 	wget --no-check-certificate -N "https://raw.githubusercontent.com/1219099256/vps/master/aria2/dht.dat"
 	[[ ! -s "dht.dat" ]] && echo -e "${Error} Aria2 DHT文件下载失败 !" && rm -rf "${file}" && exit 1
-	wget --no-check-certificate -N "https://raw.githubusercontent.com/1219099256/vps/master/aria2/core" && && chmod +x core
+	wget --no-check-certificate -N "https://raw.githubusercontent.com/1219099256/vps/master/aria2/core" && chmod +x core
 	[[ ! -s "core" ]] && echo -e "${Error} Aria2 core文件下载失败 !" && rm -rf "${file}" && exit 1
 	wget --no-check-certificate -N "https://raw.githubusercontent.com/1219099256/vps/master/aria2/delete.sh" && chmod +x delete.sh
 	[[ ! -s "delete.sh" ]] && echo -e "${Error} Aria2 delete文件下载失败 !" && rm -rf "${file}" && exit 1
