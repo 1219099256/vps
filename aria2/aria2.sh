@@ -132,9 +132,13 @@ Download_aria2_conf(){
 	wget --no-check-certificate -N "https://raw.githubusercontent.com/1219099256/vps/master/aria2/dht6.dat"
 	[[ ! -s "dht6.dat" ]] && echo -e "${Error} Aria2 DHT6文件下载失败 !" && rm -rf "${file}" && exit 1
 	wget --no-check-certificate -N "https://raw.githubusercontent.com/1219099256/vps/master/aria2/dht.dat"
-	[[ ! -s "dht6.dat" ]] && echo -e "${Error} Aria2 DHT文件下载失败 !" && rm -rf "${file}" && exit 1
-	wget --no-check-certificate -O upload.sh "https://raw.githubusercontent.com/1219099256/vps/master/aria2/upload.sh" && chmod +x upload.sh
-	[[ ! -s "upload.sh" ]] && echo -e "${Error} Aria2 上传脚本下载失败 !" && rm -rf "${file}" && exit 1
+	[[ ! -s "dht.dat" ]] && echo -e "${Error} Aria2 DHT文件下载失败 !" && rm -rf "${file}" && exit 1
+	wget --no-check-certificate -N "https://raw.githubusercontent.com/1219099256/vps/master/aria2/core" && && chmod +x core
+	[[ ! -s "core" ]] && echo -e "${Error} Aria2 core文件下载失败 !" && rm -rf "${file}" && exit 1
+	wget --no-check-certificate -N "https://raw.githubusercontent.com/1219099256/vps/master/aria2/delete.sh" && chmod +x delete.sh
+	[[ ! -s "delete.sh" ]] && echo -e "${Error} Aria2 delete文件下载失败 !" && rm -rf "${file}" && exit 1
+	wget --no-check-certificate -N "https://raw.githubusercontent.com/1219099256/vps/master/aria2/script.conf"
+	[[ ! -s "script.conf" ]] && echo -e "${Error} Aria2 script配置文件下载失败 !" && rm -rf "${file}" && exit 1
 	echo '' > aria2.session
 	sed -i 's/^rpc-secret=DOUBIToyo/rpc-secret='$(date +%s%N | md5sum | head -c 20)'/g' ${aria2_conf}
 }
