@@ -158,11 +158,12 @@ Service_aria2(){
 Installation_dependency(){
 	if [[ ${release} = "centos" ]]; then
 		yum update
-		yum -y groupinstall "Development Tools"
-		yum install vim -y
+		yum install -y wget curl ca-certificates findutils jq tar gzip dpkg vim
+		#yum -y groupinstall "Development Tools"
 	else
 		apt-get update
-		apt-get install vim build-essential -y
+		apt-get install -y wget curl ca-certificates findutils jq tar gzip dpkg vim
+		#apt-get install vim build-essential -y
 	fi
 }
 Install_aria2(){
