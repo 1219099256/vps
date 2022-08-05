@@ -1,11 +1,13 @@
 [Unit]
-Description=qBittorrent Service
-After=network.target nss-lookup.target
+Description=qBittorrent-nox service
+Wants=network-online.target
+After=network-online.target nss-lookup.target
 
 [Service]
-UMask=000
+Type=exec
 ExecStart=/usr/local/bin/qbittorrent-nox --profile=/etc
+Restart=on-failure
+SyslogIdentifier=qbittorrent-nox
 
 [Install]
-
 WantedBy=multi-user.target
