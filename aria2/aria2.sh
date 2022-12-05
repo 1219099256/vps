@@ -166,7 +166,7 @@ Installation_dependency(){
 		#yum -y groupinstall "Development Tools"
 	else
 		apt-get update
-		apt-get install -y wget curl ca-certificates findutils jq tar gzip dpkg vim
+		apt-get install -y wget curl ca-certificates findutils jq tar gzip dpkg vim make
 		#apt-get install vim build-essential -y
 	fi
 }
