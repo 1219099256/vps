@@ -5,6 +5,7 @@ After=network.target
 [Service]
 ExecStart=/usr/bin/tele-aria2 -c /root/.config/tele-aria2/config.json
 Restart=always
+RuntimeMaxSec=7d
 
 [Install]
 WantedBy=multi-user.target
