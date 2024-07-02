@@ -3,17 +3,13 @@ Description=Rclone
 After=network-online.target
 
 [Service]
-Type=simple
-ExecStart=/usr/bin/rclone mount od:/.v /v \
- --vfs-cache-mode writes \
- --umask 0000 \
- --default-permissions \
- --allow-non-empty \
- --allow-other \
- --transfers 2 \
- --buffer-size 16M \
- --low-level-retries 200
-ExecStop=/bin/fusermount -qzu /v
+Type=notify
+ExecStart=/usr/bin/rclone mount od:/EMBY /EMBY \
+ --copy-links --no-gzip-encoding --no-check-certificate --umask 0000 --default-permissions --allow-non-empty --allow-other \
+ --buffer-size 32M --dir-cache-time 30s \
+ --vfs-cache-mode full --vfs-cache-max-size 15G --vfs-cache-max-age 1h --vfs-read-chunk-size 256M --vfs-read-chunk-size-limit 1G \
+ --bwlimit 10M
+ExecStop=/bin/fusermount -qzu /EMBY
 Restart=on-abort
 User=root
 
